@@ -1560,117 +1560,112 @@ document.getElementById('contact-form')
     
 const questions = [
 {
-    question: "What is HTML?",
-    answers: ["Programming Language", "Markup Language", "Styling Language", "None"],
+    question: "What does HTML stand for?",
+    answers: ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language", "Hyperlinking Text Markup Language"],
+    correct: 0
+},
+{
+    question: "Which HTML tag is used to define an internal style sheet?",
+    answers: ["<style>", "<css>", "<script>", "<link>"],
+    correct: 0
+},
+{
+    question: "What does CSS stand for?",
+    answers: ["Creative Style Sheets", "Cascading Style Sheets", "Colorful Style Sheets", "Computer Style Sheets"],
     correct: 1
 },
 {
-    question: "Who is known as the father of computer science?",
-    answers: ["Albert Einstein", "Isaac Newton", "Charles Babbage", "Alan Turing"],
+    question: "Which CSS property is used to change the text color of an element?",
+    answers: ["color", "font-color", "text-color", "background-color"],
+    correct: 0
+},
+{
+    question: "Which JavaScript method is used to write HTML output?",
+    answers: ["document.write()", "document.output()", "console.log()", "window.write()"],
+    correct: 0
+},
+{
+    question: "Which company developed JavaScript?",
+    answers: ["Netscape", "Mozilla", "Microsoft", "Sun Microsystems"],
+    correct: 0
+},
+{
+    question: "What does PHP stand for?",
+    answers: ["Personal Home Page", "PHP: Hypertext Preprocessor", "Private Home Page", "Personal Hypertext Processor"],
+    correct: 1
+},
+{
+    question: "Which of the following is a PHP superglobal variable?",
+    answers: ["$_POST", "$GLOBALS", "$_SESSION", "All of the above"],
     correct: 3
 },
 {
-    question: "What does 'CSS' stand for?",
-    answers: ["Computer Style Sheets", "Creative Style Sheets", "Cascading Style Sheets", "Colorful Style Sheets"],
-    correct: 2
+    question: "Which of the following is a NoSQL database?",
+    answers: ["MySQL", "MongoDB", "PostgreSQL", "SQLite"],
+    correct: 1
 },
 {
-    question: "Which language runs in a web browser?",
-    answers: ["Java", "C#", "Python", "JavaScript"],
+    question: "Which language is used to query MongoDB?",
+    answers: ["SQL", "MySQL", "MongoSQL", "None of the above"],
     correct: 3
 },
 {
-    question: "What is the capital of France?",
-    answers: ["London", "Berlin", "Paris", "Rome"],
+    question: "Which service does Firebase not provide?",
+    answers: ["Authentication", "Database", "File storage", "Web hosting"],
     correct: 2
 },
 {
-    question: "Which planet is known as the Red Planet?",
-    answers: ["Earth", "Mars", "Jupiter", "Venus"],
+    question: "What type of database is Firebase Firestore?",
+    answers: ["Relational", "Document", "Graph", "Key-Value"],
     correct: 1
 },
 {
-    question: "What year did the Titanic sink?",
-    answers: ["1912", "1905", "1898", "1923"],
+    question: "Which class is used to create a Bootstrap navigation bar?",
+    answers: ["navbar", "nav", "navigation", "nav-bar"],
     correct: 0
 },
 {
-    question: "What is the largest ocean on Earth?",
-    answers: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+    question: "Which class provides a responsive fixed width container in Bootstrap?",
+    answers: [".container", ".container-fixed", ".container-fluid", ".container-responsive"],
+    correct: 0
+},
+{
+    question: "Which command is used to start a Node.js application?",
+    answers: ["node app.js", "node start", "npm start", "npm init"],
+    correct: 0
+},
+{
+    question: "Which module is built into Node.js for working with file paths?",
+    answers: ["fs", "http", "path", "url"],
+    correct: 2
+},
+{
+    question: "What is the name of the method used to create components in React?",
+    answers: ["createComponent", "newComponent", "makeComponent", "renderComponent"],
     correct: 3
 },
 {
-    question: "Which element has the chemical symbol 'O'?",
-    answers: ["Gold", "Oxygen", "Silver", "Osmium"],
-    correct: 1
-},
-{
-    question: "What is the hardest natural substance on Earth?",
-    answers: ["Gold", "Iron", "Diamond", "Platinum"],
-    correct: 2
-},
-{
-    question: "Who wrote the play 'Hamlet'?",
-    answers: ["William Shakespeare", "Charles Dickens", "Leo Tolstoy", "Mark Twain"],
+    question: "Which method is used to update the state in a React component?",
+    answers: ["this.setState", "this.changeState", "this.updateState", "this.stateChange"],
     correct: 0
 },
 {
-    question: "What is the smallest country in the world?",
-    answers: ["Monaco", "Maldives", "Vatican City", "San Marino"],
+    question: "What is the largest planet in our solar system?",
+    answers: ["Earth", "Mars", "Jupiter", "Saturn"],
     correct: 2
 },
 {
-    question: "How long does it take for the Earth to orbit the Sun?",
-    answers: ["365 days", "365.25 days", "364 days", "366 days"],
-    correct: 1
-},
-{
-    question: "What is the main ingredient in guacamole?",
-    answers: ["Tomato", "Avocado", "Onion", "Pepper"],
-    correct: 1
-},
-{
-    question: "Which gas is most prevalent in the Earth's atmosphere?",
-    answers: ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
-    correct: 1
-},
-{
-    question: "What is the chemical formula for table salt?",
-    answers: ["NaCl", "KCl", "LiCl", "MgCl2"],
-    correct: 0
-},
-{
-    question: "Which animal is known as the 'Ship of the Desert'?",
-    answers: ["Camel", "Elephant", "Horse", "Donkey"],
-    correct: 0
-},
-{
-    question: "Which planet is closest to the sun?",
-    answers: ["Venus", "Earth", "Mercury", "Mars"],
+    question: "Who was the first president of the United States?",
+    answers: ["Abraham Lincoln", "Thomas Jefferson", "George Washington", "John Adams"],
     correct: 2
 },
 {
-    question: "What year did World War II end?",
-    answers: ["1945", "1948", "1939", "1942"],
-    correct: 0
-},
-{
-    question: "What is the largest mammal in the world?",
-    answers: ["Elephant", "Blue Whale", "Giraffe", "Rhino"],
-    correct: 1
-},
-{
-    question: "Who painted the Mona Lisa?",
-    answers: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+    question: "Which element has the highest atomic number?",
+    answers: ["Oxygen", "Hydrogen", "Uranium", "Gold"],
     correct: 2
-},
-{
-    question: "Which element is represented by the symbol 'O' in the periodic table?",
-    answers: ["Gold", "Oxygen", "Silver", "Osmium"],
-    correct: 1
 }
-
 ];
+
 
 let currentQuestion = 0;
 let score = 0; // Initialize score
