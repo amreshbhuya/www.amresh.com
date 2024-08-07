@@ -871,3 +871,408 @@ form textarea{
         width: 0;
     }
 }
+/* Mobile Styles */
+@media only screen and (max-width: 767px) {
+    .header {
+        padding: 20px 5%;
+    }
+
+    .logo {
+        font-size: 12px;
+    }
+
+    .navbar a {
+        font-size: 18px;
+        margin-left: 20px;
+    }
+
+    .home {
+        grid-template-columns: 1fr;
+        padding: 70px 5% 0;
+    }
+
+    .home-img img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .home-content h3 {
+        font-size: 28px;
+    }
+
+    .home-content h1 {
+        font-size: 48px;
+    }
+
+    .home-content p {
+        font-size: 18px;
+    }
+
+    .btn-box {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .about-img img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .about-text h2 {
+        font-size: 40px;
+    }
+
+    .about-text h4 {
+        font-size: 24px;
+    }
+
+    .about-text p {
+        font-size: 18px;
+    }
+
+    #services {
+        padding: 40px 0;
+    }
+
+    .sub-title {
+        font-size: 40px;
+    }
+
+    .services-list {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
+
+    .services-list div {
+        padding: 20px;
+        font-size: 12px;
+    }
+
+    .read {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .container1 {
+        width: 100%;
+        height: auto;
+        padding: 30px 20px;
+        margin-left: 0;
+    }
+
+    .heading1 {
+        font-size: 30px;
+    }
+
+    .Technical-bars .bar .progress-line {
+        height: 4px;
+    }
+
+    .radial-bars .radial-bar {
+        width: 80%;
+        height: 150px;
+    }
+
+    .radial-bars .radial-bar svg {
+        width: 100px;
+        height: 120px;
+    }
+
+    .contact {
+        grid-template-columns: 1fr;
+        padding-left: 0;
+        margin-top: 50px;
+    }
+
+    .contact-text h2 {
+        font-size: 50px;
+    }
+
+    .contact-text h4 {
+        font-size: 18px;
+    }
+
+    .contact-text p {
+        font-size: 18px;
+    }
+
+    .contact-form form input,
+    form textarea {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .contact-form textarea {
+        height: 180px;
+    }
+
+    .contact-form form .send {
+        font-size: 16px;
+        padding: 12px 30px;
+    }
+
+    .last-text p {
+        font-size: 16px;
+    }
+
+    .top i {
+        font-size: 18px;
+        padding: 8px;
+    }
+
+    .portfolio-content {
+        grid-template-columns: 1fr;
+    }
+
+    .row img {
+        width: 100%;
+    }
+
+    .layer h5 {
+        font-size: 18px;
+    }
+
+    .layer p {
+        font-size: 14px;
+    }
+
+    .layer i {
+        font-size: 18px;
+    }
+}
+
+/* Tablets and Small Desktops */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .header {
+        padding: 20px 8%;
+    }
+
+    .logo {
+        font-size: 14px;
+    }
+
+    .navbar a {
+        font-size: 22px;
+        margin-left: 25px;
+    }
+
+    .home {
+        padding: 70px 8% 0;
+    }
+
+    .home-img img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .home-content h3 {
+        font-size: 30px;
+    }
+
+    .home-content h1 {
+        font-size: 50px;
+    }
+
+    .home-content p {
+        font-size: 19px;
+    }
+
+    .btn-box {
+        font-size: 16px;
+        padding: 12px 28px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .about-img img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .about-text h2 {
+        font-size: 50px;
+    }
+
+    .about-text h4 {
+        font-size: 26px;
+    }
+
+    .about-text p {
+        font-size: 19px;
+    }
+
+    #services {
+        padding: 60px 0;
+    }
+
+    .sub-title {
+        font-size: 50px;
+    }
+
+    .services-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .services-list div {
+        padding: 30px;
+        font-size: 14px;
+    }
+
+    .read {
+        font-size: 16px;
+        padding: 12px 28px;
+    }
+
+    .container1 {
+        width: 80%;
+        height: auto;
+        padding: 50px 30px;
+        margin-left: 0;
+    }
+
+    .heading1 {
+        font-size: 40px;
+    }
+
+    .Technical-bars .bar .progress-line {
+        height: 5px;
+    }
+
+    .radial-bars .radial-bar {
+        width: 70%;
+        height: 160px;
+    }
+
+    .radial-bars .radial-bar svg {
+        width: 110px;
+        height: 140px;
+    }
+
+    .contact {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-text h2 {
+        font-size: 60px;
+    }
+
+    .contact-text h4 {
+        font-size: 20px;
+    }
+
+    .contact-text p {
+        font-size: 20px;
+    }
+
+    .contact-form form input,
+    form textarea {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .contact-form textarea {
+        height: 200px;
+    }
+
+    .contact-form form .send {
+        font-size: 18px;
+        padding: 14px 40px;
+    }
+
+    .last-text p {
+        font-size: 18px;
+    }
+
+    .top i {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .portfolio-content {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+
+    .row img {
+        width: 100%;
+    }
+
+    .layer h5 {
+        font-size: 20px;
+    }
+
+    .layer p {
+        font-size: 16px;
+    }
+
+    .layer i {
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .header {
+        flex-direction: column;
+        padding: 20px;
+        display: block;
+    }
+
+    .logo {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .navbar {
+        display: none; /* Hide navbar by default on mobile */
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+        background-color: #444;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .navbar a {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        background: none;
+        border: none;
+        color: #fff;
+    }
+    .pc{
+        display: none;
+    }
+}
+
+/* Tablet and Small Desktops */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .header {
+        padding: 20px 8%;
+        
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .navbar a {
+        font-size: 20px;
+    }
+}
