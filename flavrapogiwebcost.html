@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlavraPogi Support - Professional Cost Sheet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #2c3e50;
@@ -14,6 +15,7 @@
             --border: #bdc3c7;
             --text-light: #7f8c8d;
             --text-dark: #2c3e50;
+            --success: #27ae60;
         }
         
         * {
@@ -99,12 +101,17 @@
         
         .total-row {
             font-weight: 500;
-            background-color: var(--secondary);
+            background-color: var(--dark);
             color: white;
         }
         
+        .total-row td {
+            font-size: 1.1rem;
+        }
+        
         .highlight {
-            font-weight: 500;
+            font-weight: 600;
+            color: white;
         }
         
         .note {
@@ -128,6 +135,18 @@
             line-height: 1.6;
         }
         
+        .tech-section {
+            margin-bottom: 30px;
+        }
+        
+        .tech-section h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+        }
+        
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
@@ -144,12 +163,32 @@
             align-items: center;
             gap: 12px;
             flex: 1 1 200px;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .tech-icon {
             width: 30px;
             height: 30px;
             object-fit: contain;
+        }
+        
+        .tech-category {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .category-title {
+            width: 100%;
+            font-weight: 500;
+            color: var(--secondary);
+            margin-top: 10px;
         }
         
         footer {
@@ -159,6 +198,13 @@
             font-size: 0.9rem;
             border-top: 1px solid var(--border);
             margin-top: 30px;
+        }
+        
+        .item-icon {
+            margin-right: 10px;
+            color: var(--accent);
+            width: 20px;
+            text-align: center;
         }
         
         /* Responsive adjustments */
@@ -223,6 +269,7 @@
             
             .total-row td {
                 justify-content: flex-end;
+                background-color: var(--dark);
             }
             
             .total-row td:before {
@@ -235,6 +282,10 @@
                 margin-right: 15px;
                 font-weight: 500;
                 color: white;
+            }
+            
+            .item-icon {
+                display: none;
             }
         }
     </style>
@@ -257,42 +308,47 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td data-label="Item">Frontend Development</td>
-                        <td data-label="Description">React.js implementation with animations and responsive design</td>
-                        <td data-label="Cost">8,500</td>
+                        <td data-label="Item"><i class="fas fa-code item-icon"></i>Frontend Development</td>
+                        <td data-label="Description">React.js with Next.js, animations and responsive design</td>
+                        <td data-label="Cost">9,500</td>
                     </tr>
                     <tr>
-                        <td data-label="Item">Backend Development</td>
+                        <td data-label="Item"><i class="fas fa-server item-icon"></i>Backend Development</td>
                         <td data-label="Description">Node.js server with Firebase integration</td>
                         <td data-label="Cost">7,000</td>
                     </tr>
                     <tr>
-                        <td data-label="Item">UI/UX Design</td>
-                        <td data-label="Description">Custom design with interactive elements</td>
+                        <td data-label="Item"><i class="fas fa-paint-brush item-icon"></i>UI/UX Design</td>
+                        <td data-label="Description">Custom design with Material-UI and interactive elements</td>
                         <td data-label="Cost">4,500</td>
                     </tr>
                     <tr>
-                        <td data-label="Item">Authentication System</td>
+                        <td data-label="Item"><i class="fas fa-lock item-icon"></i>Authentication System</td>
                         <td data-label="Description">Sign in, Sign up, and user management</td>
                         <td data-label="Cost">2,000</td>
                     </tr>
                     <tr>
-                        <td data-label="Item">Content Management</td>
+                        <td data-label="Item"><i class="fas fa-images item-icon"></i>Content Management</td>
                         <td data-label="Description">Gallery, messaging, and dynamic content</td>
                         <td data-label="Cost">2,500</td>
                     </tr>
                     <tr>
-                        <td data-label="Item">Hosting (Firebase)</td>
+                        <td data-label="Item"><i class="fas fa-database item-icon"></i>3D Integration</td>
+                        <td data-label="Description">Three.js for 3D visualizations</td>
+                        <td data-label="Cost">1,500</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Item"><i class="fas fa-cloud item-icon"></i>Hosting (Firebase)</td>
                         <td data-label="Description">1 year hosting for support.flavrapogi.org</td>
                         <td data-label="Cost">1,000</td>
                     </tr>
                     <tr>
-                        <td data-label="Item">Domain Management</td>
+                        <td data-label="Item"><i class="fas fa-globe item-icon"></i>Domain Management</td>
                         <td data-label="Description">Configuration for flavrapogi.com</td>
                         <td data-label="Cost">500</td>
                     </tr>
-                    <tr class="total-row" style='background:black'>
-                        <td colspan="2">Total Cost</td>
+                    <tr class="total-row">
+                        <td colspan="2">Total Development Cost</td>
                         <td class="highlight">26,000</td>
                     </tr>
                 </tbody>
@@ -301,25 +357,66 @@
         
         <div class="note">
             <h3>Notes</h3>
-            <p>This cost sheet includes development, design, and first-year hosting expenses. The amount covers all core features including responsive pages, authentication system, content management, and hosting setup. Additional features or ongoing maintenance would be quoted separately.</p>
+            <p>This cost sheet includes development, design, and first-year hosting expenses. The amount covers all core features including responsive pages, authentication system, content management, 3D visualizations, and hosting setup. Additional features or ongoing maintenance would be quoted separately.</p>
         </div>
         
-        <div class="tech-stack">
-            <div class="tech-item">
-                <img src="https://cdn.worldvectorlogo.com/logos/react-2.svg" alt="React" class="tech-icon">
-                <span>React</span>
+        <div class="tech-section">
+            <h2>Technology Stack</h2>
+            
+            <div class="tech-category">
+                <div class="category-title">Frontend Technologies</div>
+                <div class="tech-item">
+                    <img src="https://cdn.worldvectorlogo.com/logos/react-2.svg" alt="React" class="tech-icon">
+                    <span>React.js</span>
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.worldvectorlogo.com/logos/next-js.svg" alt="Next.js" class="tech-icon">
+                    <span>Next.js</span>
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.worldvectorlogo.com/logos/material-ui-1.svg" alt="Material-UI" class="tech-icon">
+                    <span>Material-UI</span>
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.worldvectorlogo.com/logos/bootstrap-5-1.svg" alt="Bootstrap" class="tech-icon">
+                    <span>Bootstrap</span>
+                </div>
             </div>
-            <div class="tech-item">
-                <img src="https://cdn.worldvectorlogo.com/logos/firebase-1.svg" alt="Firebase" class="tech-icon">
-                <span>Firebase</span>
+            
+            <div class="tech-category">
+                <div class="category-title">Backend Technologies</div>
+                <div class="tech-item">
+                    <img src="https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" alt="Node.js" class="tech-icon">
+                    <span>Node.js</span>
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.worldvectorlogo.com/logos/firebase-1.svg" alt="Firebase" class="tech-icon">
+                    <span>Firebase</span>
+                </div>
             </div>
-            <div class="tech-item">
-                <img src="https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" alt="Node.js" class="tech-icon">
-                <span>Node.js</span>
+            
+            <div class="tech-category">
+                <div class="category-title">Specialized Libraries</div>
+                <div class="tech-item">
+                    <img src="https://cdn.worldvectorlogo.com/logos/threejs-1.svg" alt="Three.js" class="tech-icon">
+                    <span>Three.js</span>
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.worldvectorlogo.com/logos/framer-motion.svg" alt="Framer Motion" class="tech-icon">
+                    <span>Framer Motion</span>
+                </div>
             </div>
-            <div class="tech-item">
-                <img src="https://cdn.worldvectorlogo.com/logos/cpanel.svg" alt="cPanel" class="tech-icon">
-                <span>cPanel</span>
+            
+            <div class="tech-category">
+                <div class="category-title">Hosting & Management</div>
+                <div class="tech-item">
+                    <img src="https://cdn.worldvectorlogo.com/logos/cpanel.svg" alt="cPanel" class="tech-icon">
+                    <span>cPanel</span>
+                </div>
+                <div class="tech-item">
+                    <img src="https://cdn.worldvectorlogo.com/logos/google-cloud.svg" alt="Google Cloud" class="tech-icon">
+                    <span>Google Cloud</span>
+                </div>
             </div>
         </div>
         
