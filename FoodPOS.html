@@ -3,477 +3,567 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodPOS Pro | Advanced Food Distribution System</title>
+    <title>FoodPOS Pro | Enterprise Food Distribution System</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2C3E50;
-            --secondary: #E74C3C;
-            --accent: #3498DB;
-            --dark: #2C3E50;
-            --light: #ECF0F1;
-            --text: #333333;
-            --text-light: #7F8C8D;
+            --primary: #0d47a1;  /* Deep blue */
+            --secondary: #b71c1c; /* Deep red */
+            --dark: #0a2e5a;
+            --light: #f8f9fa;
+            --text: #212529;
+            --border: #dee2e6;
+            --accent: #ffab00;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
         }
         
         body {
-            background-color: #F9F9F9;
+            background-color: #fff;
             color: var(--text);
             line-height: 1.7;
-            font-weight: 300;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         header {
-            background: var(--dark);
+            background: linear-gradient(135deg, var(--primary), var(--dark));
             color: white;
-            padding: 3rem 0 4rem;
+            padding: 60px 20px;
             text-align: center;
+            box-shadow: 0 4px 20px rgba(13, 71, 161, 0.2);
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+        
+        .header-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin: 60px 0 30px;
+            position: relative;
+        }
+        
+        .section-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-left: 15px;
+        }
+        
+        .section-icon {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .tech-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
             overflow: hidden;
         }
         
-        header::before {
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-color: rgba(13, 71, 161, 0.2);
+        }
+        
+        .tech-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
+        
+        .tech-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .tech-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(13, 71, 161, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .tech-icon .material-icons {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .tech-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+        
+        .tech-category {
+            font-size: 0.85rem;
+            color: var(--text);
+            opacity: 0.7;
+            margin-top: 3px;
+        }
+        
+        .tech-description {
+            margin-top: 15px;
+            color: var(--text);
+            opacity: 0.9;
+        }
+        
+        .cost-sheet-container {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: 30px;
+        }
+        
+        .cost-sheet {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .cost-sheet th {
+            background: var(--primary);
+            color: white;
+            font-weight: 500;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .cost-sheet td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .cost-sheet tr:nth-child(even) {
+            background: rgba(13, 71, 161, 0.03);
+        }
+        
+        .cost-sheet tr:last-child td {
+            border-bottom: none;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .cost-note {
+            font-size: 0.9rem;
+            color: var(--text);
+            opacity: 0.8;
+            margin-top: 15px;
+            padding-left: 15px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            margin: 60px 0 40px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(44,62,80,0.9) 0%, rgba(231,76,60,0.8) 100%);
-            z-index: 1;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
         
-        .header-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: -3rem auto 0;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 3;
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .logo span {
-            color: var(--accent);
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-        }
-        
-        h2 {
+        .contact-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
             color: var(--primary);
-            margin: 3rem 0 1.5rem;
-            font-size: 2rem;
-            font-weight: 600;
-            position: relative;
-            padding-bottom: 0.75rem;
+            margin-bottom: 5px;
         }
         
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--secondary);
-        }
-        
-        h3 {
-            color: var(--secondary);
-            margin: 2rem 0 1rem;
+        .contact-name {
             font-size: 1.5rem;
             font-weight: 500;
+            margin-bottom: 5px;
         }
         
-        .tech-section {
-            background: white;
-            border-radius: 8px;
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            font-size: 1rem;
-        }
-        
-        th {
-            background-color: var(--primary);
-            color: white;
-            font-weight: 500;
-            text-align: left;
-            padding: 1rem 1.5rem;
-        }
-        
-        td {
-            padding: 1.2rem 1.5rem;
-            border-bottom: 1px solid #eee;
-            vertical-align: top;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #F9F9F9;
-        }
-        
-        tr:hover {
-            background-color: #F1F5F9;
-        }
-        
-        .advantages {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .advantage-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--accent);
-        }
-        
-        .advantage-card h3 {
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        .hardware-list {
-            list-style: none;
-        }
-        
-        .hardware-list li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-        }
-        
-        .hardware-list li::before {
-            content: '•';
+        .contact-position {
             color: var(--secondary);
-            font-weight: bold;
-            display: inline-block;
-            width: 1.5em;
-            margin-left: -1.5em;
-            font-size: 1.5rem;
-        }
-        
-        .contact-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
-            margin: 3rem 0;
-            text-align: center;
-            border-top: 4px solid var(--secondary);
-        }
-        
-        .contact-card h3 {
-            margin-top: 0;
-            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 20px;
         }
         
         .contact-info {
-            margin: 1.5rem 0;
-            font-size: 1.1rem;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-info .material-icons {
+            margin-right: 10px;
+            color: var(--primary);
         }
         
         .contact-info a {
-            color: var(--accent);
+            color: var(--text);
             text-decoration: none;
-            transition: color 0.2s;
+            transition: color 0.3s;
         }
         
         .contact-info a:hover {
-            color: var(--secondary);
-            text-decoration: underline;
+            color: var(--primary);
         }
         
         footer {
             background: var(--dark);
             color: white;
-            padding: 3rem 0;
+            padding: 40px 0;
             text-align: center;
-            margin-top: 3rem;
-        }
-        
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
         }
         
         .footer-logo {
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .footer-logo span {
+            color: var(--accent);
         }
         
         .copyright {
             opacity: 0.8;
             font-size: 0.9rem;
-            margin-top: 1.5rem;
         }
         
         @media (max-width: 768px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-            
             h1 {
                 font-size: 2.2rem;
             }
             
-            .tech-section {
-                padding: 1.5rem;
+            .tech-grid {
+                grid-template-columns: 1fr;
             }
             
-            table {
-                font-size: 0.9rem;
+            .cost-sheet-container {
+                padding: 20px;
             }
             
-            th, td {
-                padding: 0.8rem 1rem;
+            .contact-card {
+                padding: 30px 20px;
             }
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate {
-            animation: fadeInUp 0.6s ease-out forwards;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <div class="logo">Food<span>POS</span> Pro</div>
-            <h1>Advanced Food Distribution System</h1>
-            <p class="tagline">A complete technology solution for efficient food distribution management with real-time tracking and reporting</p>
+        <div class="container">
+            <h1>FoodPOS Pro</h1>
+            <p class="header-subtitle">Enterprise-grade food distribution management system with real-time tracking and reporting</p>
         </div>
     </header>
     
     <div class="container">
-        <section class="tech-section animate" style="animation-delay: 0.1s">
-            <h2>Core Technology Stack</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Technology</th>
-                        <th>Purpose</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Qt Framework (C++)</strong></td>
-                        <td>High-performance POS terminal application with touchscreen interface and direct hardware control</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Firebase Realtime Database</strong></td>
-                        <td>Cloud-based NoSQL solution for real-time data synchronization across all devices</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        <div class="section-header">
+            <span class="material-icons section-icon">architecture</span>
+            <h2 class="section-title">Technology Stack</h2>
+        </div>
         
-        <section class="tech-section animate" style="animation-delay: 0.2s">
-            <h2>Backend Services</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Technology</th>
-                        <th>Purpose</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Node.js</strong></td>
-                        <td>Lightweight and efficient server runtime environment</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Express.js</strong></td>
-                        <td>Minimalist web framework for building robust REST APIs</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Firebase Authentication</strong></td>
-                        <td>Secure, scalable user authentication for admins and mentors</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        
-        <section class="tech-section animate" style="animation-delay: 0.3s">
-            <h2>Administration Dashboard</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Technology</th>
-                        <th>Purpose</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>React</strong></td>
-                        <td>Modern, component-based web interface for administration</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Material-UI (MUI)</strong></td>
-                        <td>Professional UI components following Google's Material Design</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        
-        <section class="tech-section animate" style="animation-delay: 0.4s">
-            <h2>Barcode System</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Technology</th>
-                        <th>Purpose</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>ZXing</strong></td>
-                        <td>Open-source barcode processing library for generation and scanning</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        
-        <section class="tech-section animate" style="animation-delay: 0.5s">
-            <h2>Hardware Integration</h2>
-            <ul class="hardware-list">
-                <li><strong>Barcode Scanners:</strong> USB/Bluetooth devices integrated via Qt framework</li>
-                <li><strong>PVC Card Printers:</strong> Direct printing support through Qt ESC/POS commands</li>
-                <li><strong>Touchscreen Terminals:</strong> Raspberry Pi or commercial Android devices as POS hardware</li>
-            </ul>
-        </section>
-        
-        <section class="animate" style="animation-delay: 0.6s">
-            <h2>Key System Advantages</h2>
-            <div class="advantages">
-                <div class="advantage-card">
-                    <h3>Enterprise-Grade Reliability</h3>
-                    <p>Built with industrial-strength technologies like Qt and Firebase for mission-critical operations</p>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">
+                        <span class="material-icons">developer_board</span>
+                    </div>
+                    <div>
+                        <div class="tech-name">Qt Framework</div>
+                        <div class="tech-category">C++ Application Development</div>
+                    </div>
                 </div>
-                <div class="advantage-card">
-                    <h3>Real-Time Data Sync</h3>
-                    <p>Instant updates across all devices with Firebase's real-time database capabilities</p>
-                </div>
-                <div class="advantage-card">
-                    <h3>Modern User Experience</h3>
-                    <p>Professional interfaces with Material Design principles for both POS and admin dashboards</p>
-                </div>
-                <div class="advantage-card">
-                    <h3>Scalable Architecture</h3>
-                    <p>From small community kitchens to large-scale distribution networks</p>
-                </div>
+                <p class="tech-description">High-performance POS terminal with touchscreen interface, hardware integration, and offline capabilities.</p>
             </div>
-        </section>
+            
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">
+                        <span class="material-icons">cloud</span>
+                    </div>
+                    <div>
+                        <div class="tech-name">Firebase</div>
+                        <div class="tech-category">Backend Services</div>
+                    </div>
+                </div>
+                <p class="tech-description">Realtime NoSQL database, authentication, and cloud functions for scalable backend infrastructure.</p>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">
+                        <span class="material-icons">terminal</span>
+                    </div>
+                    <div>
+                        <div class="tech-name">Node.js</div>
+                        <div class="tech-category">Server Environment</div>
+                    </div>
+                </div>
+                <p class="tech-description">JavaScript runtime for building scalable network applications and RESTful APIs.</p>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">
+                        <span class="material-icons">api</span>
+                    </div>
+                    <div>
+                        <div class="tech-name">Express.js</div>
+                        <div class="tech-category">Web Framework</div>
+                    </div>
+                </div>
+                <p class="tech-description">Minimalist web framework for Node.js to handle API requests and business logic.</p>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">
+                        <span class="material-icons">dashboard</span>
+                    </div>
+                    <div>
+                        <div class="tech-name">React.js</div>
+                        <div class="tech-category">Frontend Framework</div>
+                    </div>
+                </div>
+                <p class="tech-description">Component-based JavaScript library for building responsive admin dashboards.</p>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">
+                        <span class="material-icons">palette</span>
+                    </div>
+                    <div>
+                        <div class="tech-name">Material-UI</div>
+                        <div class="tech-category">UI Component Library</div>
+                    </div>
+                </div>
+                <p class="tech-description">React components that implement Google's Material Design for professional interfaces.</p>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">
+                        <span class="material-icons">qr_code</span>
+                    </div>
+                    <div>
+                        <div class="tech-name">ZXing</div>
+                        <div class="tech-category">Barcode Processing</div>
+                    </div>
+                </div>
+                <p class="tech-description">Open-source library for barcode generation and scanning with multi-format support.</p>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">
+                        <span class="material-icons">storage</span>
+                    </div>
+                    <div>
+                        <div class="tech-name">SQLite</div>
+                        <div class="tech-category">Local Database</div>
+                    </div>
+                </div>
+                <p class="tech-description">Lightweight local database for offline data storage in the POS terminal.</p>
+            </div>
+            
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">
+                        <span class="material-icons">print</span>
+                    </div>
+                    <div>
+                        <div class="tech-name">ESC/POS</div>
+                        <div class="tech-category">Printer Protocol</div>
+                    </div>
+                </div>
+                <p class="tech-description">Standard protocol for thermal and PVC card printers with Qt integration.</p>
+            </div>
+        </div>
         
-        <div class="contact-card animate" style="animation-delay: 0.7s">
-            <h3>System Development Team</h3>
+        <div class="section-header">
+            <span class="material-icons section-icon">receipt</span>
+            <h2 class="section-title">Approximate Cost Sheet</h2>
+        </div>
+        
+        <div class="cost-sheet-container">
+            <h3>First Year Payment (One-Time)</h3>
+            <table class="cost-sheet">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Cost (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Qt POS Software Development</td>
+                        <td>2,50,000</td>
+                    </tr>
+                    <tr>
+                        <td>Firebase Backend Integration</td>
+                        <td>75,000</td>
+                    </tr>
+                    <tr>
+                        <td>Touchscreen UI/UX Design</td>
+                        <td>25,000</td>
+                    </tr>
+                    <tr>
+                        <td>Testing & Deployment</td>
+                        <td>25,000</td>
+                    </tr>
+                    <tr>
+                        <td>1 Scanner + 1 Demo Card</td>
+                        <td>3,150</td>
+                    </tr>
+                    <tr>
+                        <td>Total First Year Cost</td>
+                        <td>3,78,150</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 style="margin-top: 40px;">Additional Hardware</h3>
+            <table class="cost-sheet">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Unit Cost (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Additional Scanner</td>
+                        <td>3,000</td>
+                    </tr>
+                    <tr>
+                        <td>Additional PVC Card</td>
+                        <td>150</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 style="margin-top: 40px;">Annual Maintenance (From Year 2)</h3>
+            <table class="cost-sheet">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Cost (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Software Updates</td>
+                        <td>30,000</td>
+                    </tr>
+                    <tr>
+                        <td>Priority Support</td>
+                        <td>21,000</td>
+                    </tr>
+                    <tr>
+                        <td>Total Annual Maintenance</td>
+                        <td>51,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p class="cost-note">
+                Note: Maintenance includes security patches, bug fixes, and compatibility updates. Hardware costs scale with your requirements.
+            </p>
+        </div>
+        
+        <div class="contact-card">
+            <h3 class="contact-title">Technical Contact</h3>
+            <div class="contact-name">Amresh Bhuyan</div>
+            <div class="contact-position">Founder & Lead Developer</div>
+            
             <div class="contact-info">
-                <p><strong>Amresh Bhuyan</strong></p>
-                <p>Founder & Lead Developer</p>
-                <p><a href="tel:+917854998757">+91 7854998757</a></p>
-                <p><a href="mailto:amreshbhuyanone@gmail.com">amreshbhuyanone@gmail.com</a></p>
-                <p><a href="https://aedia.in" target="_blank">aedia.in</a></p>
+                <span class="material-icons">phone</span>
+                <a href="tel:+917854998757">+91 7854998757</a>
             </div>
-            <p>For implementation inquiries, customization requests, or technical support</p>
+            <div class="contact-info">
+                <span class="material-icons">email</span>
+                <a href="mailto:amreshbhuyanone@gmail.com">amreshbhuyanone@gmail.com</a>
+            </div>
+            <div class="contact-info">
+                <span class="material-icons">language</span>
+                <a href="https://aedia.in" target="_blank">www.aedia.in</a>
+            </div>
         </div>
     </div>
     
     <footer>
-        <div class="footer-content">
+        <div class="container">
             <div class="footer-logo">Food<span>POS</span> Pro</div>
-            <p>Advanced Food Distribution Management System</p>
             <p class="copyright">© 2023 Aedia Technologies. All rights reserved.</p>
         </div>
     </footer>
-    
-    <script>
-        // Animation controller
-        document.addEventListener('DOMContentLoaded', function() {
-            const animateElements = document.querySelectorAll('.animate');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            animateElements.forEach(el => {
-                el.style.opacity = 0;
-                observer.observe(el);
-            });
-            
-            // Add hover effects
-            const cards = document.querySelectorAll('.advantage-card');
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    card.style.transform = 'translateY(-5px)';
-                    card.style.boxShadow = '0 15px 30px rgba(0,0,0,0.1)';
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'translateY(0)';
-                    card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
-                });
-            });
-        });
-    </script>
 </body>
 </html>
