@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodPOS Pro | Advanced Food Distribution System</title>
+    <style>
+        :root {
+            --primary: #2C3E50;
+            --secondary: #E74C3C;
+            --accent: #3498DB;
+            --dark: #2C3E50;
+            --light: #ECF0F1;
+            --text: #333333;
+            --text-light: #7F8C8D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #F9F9F9;
+            color: var(--text);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        
+        header {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(44,62,80,0.9) 0%, rgba(231,76,60,0.8) 100%);
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: -3rem auto 0;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin: 3rem 0 1.5rem;
+            font-size: 2rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+        }
+        
+        h3 {
+            color: var(--secondary);
+            margin: 2rem 0 1rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .tech-section {
+            background: white;
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 500;
+            text-align: left;
+            padding: 1rem 1.5rem;
+        }
+        
+        td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #F9F9F9;
+        }
+        
+        tr:hover {
+            background-color: #F1F5F9;
+        }
+        
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .advantage-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--accent);
+        }
+        
+        .advantage-card h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .hardware-list {
+            list-style: none;
+        }
+        
+        .hardware-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hardware-list li::before {
+            content: '•';
+            color: var(--secondary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1.5em;
+            margin-left: -1.5em;
+            font-size: 1.5rem;
+        }
+        
+        .contact-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+            margin: 3rem 0;
+            text-align: center;
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .contact-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+        
+        .contact-info {
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+        
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tech-section {
+                padding: 1.5rem;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 0.8rem 1rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">Food<span>POS</span> Pro</div>
+            <h1>Advanced Food Distribution System</h1>
+            <p class="tagline">A complete technology solution for efficient food distribution management with real-time tracking and reporting</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="tech-section animate" style="animation-delay: 0.1s">
+            <h2>Core Technology Stack</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Technology</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Qt Framework (C++)</strong></td>
+                        <td>High-performance POS terminal application with touchscreen interface and direct hardware control</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Firebase Realtime Database</strong></td>
+                        <td>Cloud-based NoSQL solution for real-time data synchronization across all devices</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section class="tech-section animate" style="animation-delay: 0.2s">
+            <h2>Backend Services</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Technology</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Node.js</strong></td>
+                        <td>Lightweight and efficient server runtime environment</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Express.js</strong></td>
+                        <td>Minimalist web framework for building robust REST APIs</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Firebase Authentication</strong></td>
+                        <td>Secure, scalable user authentication for admins and mentors</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section class="tech-section animate" style="animation-delay: 0.3s">
+            <h2>Administration Dashboard</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Technology</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>React</strong></td>
+                        <td>Modern, component-based web interface for administration</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Material-UI (MUI)</strong></td>
+                        <td>Professional UI components following Google's Material Design</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section class="tech-section animate" style="animation-delay: 0.4s">
+            <h2>Barcode System</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Technology</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ZXing</strong></td>
+                        <td>Open-source barcode processing library for generation and scanning</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section class="tech-section animate" style="animation-delay: 0.5s">
+            <h2>Hardware Integration</h2>
+            <ul class="hardware-list">
+                <li><strong>Barcode Scanners:</strong> USB/Bluetooth devices integrated via Qt framework</li>
+                <li><strong>PVC Card Printers:</strong> Direct printing support through Qt ESC/POS commands</li>
+                <li><strong>Touchscreen Terminals:</strong> Raspberry Pi or commercial Android devices as POS hardware</li>
+            </ul>
+        </section>
+        
+        <section class="animate" style="animation-delay: 0.6s">
+            <h2>Key System Advantages</h2>
+            <div class="advantages">
+                <div class="advantage-card">
+                    <h3>Enterprise-Grade Reliability</h3>
+                    <p>Built with industrial-strength technologies like Qt and Firebase for mission-critical operations</p>
+                </div>
+                <div class="advantage-card">
+                    <h3>Real-Time Data Sync</h3>
+                    <p>Instant updates across all devices with Firebase's real-time database capabilities</p>
+                </div>
+                <div class="advantage-card">
+                    <h3>Modern User Experience</h3>
+                    <p>Professional interfaces with Material Design principles for both POS and admin dashboards</p>
+                </div>
+                <div class="advantage-card">
+                    <h3>Scalable Architecture</h3>
+                    <p>From small community kitchens to large-scale distribution networks</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="contact-card animate" style="animation-delay: 0.7s">
+            <h3>System Development Team</h3>
+            <div class="contact-info">
+                <p><strong>Amresh Bhuyan</strong></p>
+                <p>Founder & Lead Developer</p>
+                <p><a href="tel:+917854998757">+91 7854998757</a></p>
+                <p><a href="mailto:amreshbhuyanone@gmail.com">amreshbhuyanone@gmail.com</a></p>
+                <p><a href="https://aedia.in" target="_blank">aedia.in</a></p>
+            </div>
+            <p>For implementation inquiries, customization requests, or technical support</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Food<span>POS</span> Pro</div>
+            <p>Advanced Food Distribution Management System</p>
+            <p class="copyright">© 2023 Aedia Technologies. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Animation controller
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(el => {
+                el.style.opacity = 0;
+                observer.observe(el);
+            });
+            
+            // Add hover effects
+            const cards = document.querySelectorAll('.advantage-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px)';
+                    card.style.boxShadow = '0 15px 30px rgba(0,0,0,0.1)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0)';
+                    card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.05)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
